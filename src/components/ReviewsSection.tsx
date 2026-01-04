@@ -1,6 +1,5 @@
-import React from 'react';
-import { Star, ExternalLink, Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ExternalLink, Quote, Star } from 'lucide-react';
 const reviews = [{
   id: 1,
   name: 'Mohammed Ramees',
@@ -119,7 +118,7 @@ export function ReviewsSection() {
           scale: 1.05
         }} whileTap={{
           scale: 0.95
-        }} className="inline-flex items-center px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-colors">
+        }} className="inline-flex items-center px-8 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 transition-colors">
             Read All Reviews
             <ExternalLink className="w-4 h-4 ml-2" />
           </motion.a>

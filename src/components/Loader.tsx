@@ -1,14 +1,13 @@
-import { useEffect } from 'react';
 
 export function Loader(){
-  useEffect(()=>{
-    // prevent body scroll while loader is visible
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return ()=>{
-      document.body.style.overflow = prev || '';
-    };
-  },[])
+  // useEffect(()=>{
+  //   // prevent body scroll while loader is visible
+  //   const prev = document.body.style.overflow;
+  //   document.body.style.overflow = 'hidden';
+  //   return ()=>{
+  //     document.body.style.overflow = prev || '';
+  //   };
+  // },[])
 
   return (
     <div aria-hidden={false} role="status" className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-b from-black via-zinc-900 to-black loader-overlay">
@@ -66,3 +65,4 @@ export function Loader(){
 }
 
 export default Loader
+

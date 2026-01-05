@@ -38,11 +38,13 @@ const reviews = [{
   text: 'Highly recommended! Good customer service and affordable pricing compared to other detailing centers. The staff is very friendly and skilled.'
 }];
 export function ReviewsSection() {
-  return <section className="py-20 bg-black relative overflow-hidden">
-      {/* Background Elements */}
+  return (
+    <section className="py-20 bg-gradient-to-b from-black via-zinc-950 to-black relative overflow-hidden">
+      {/* Enhanced Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-brand-teal/5 via-transparent to-transparent rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -75,7 +77,7 @@ export function ReviewsSection() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 tablet-landscape:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {reviews.map((review, index) => <motion.div key={review.id} initial={{
           opacity: 0,
           y: 20
@@ -87,7 +89,7 @@ export function ReviewsSection() {
         }} transition={{
           duration: 0.5,
           delay: index * 0.1
-        }} className="bg-gray-900/50 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:border-red-600/30 transition-colors group">
+        }} className="bg-gray-900/60 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:border-red-600/50 hover:shadow-lg hover:shadow-red-600/20 transition-all duration-300 group hover:-translate-y-1">
               <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center text-white font-bold text-lg">
@@ -124,5 +126,6 @@ export function ReviewsSection() {
           </motion.a>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }

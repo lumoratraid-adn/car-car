@@ -1,7 +1,13 @@
 import { MapPin, MessageCircle, Phone } from 'lucide-react';
 export function ContactSection() {
-  return <section className="py-16 bg-zinc-900 text-gray-200">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  return (
+    <section className="py-20 bg-gradient-to-b from-zinc-900 to-black text-gray-200 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 via-transparent to-green-900/10" />
+      </div>
+
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h2 className="text-3xl font-bold text-white mb-8">Get In Touch</h2>
 
         <div className="space-y-4">
@@ -56,5 +62,6 @@ export function ContactSection() {
           </a>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }

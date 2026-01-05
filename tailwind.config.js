@@ -8,15 +8,23 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
       },
       colors: {
         brand: {
-          blue: '#2563eb', // Primary
-          red: '#dc2626',  // Accent
-          dark: '#1e293b', // Text
-          gray: '#f3f4f6', // Backgrounds
+          teal: '#0d9488', // Primary eco-friendly
+          cyan: '#06b6d4',  // Accent
+          green: '#10b981', // Secondary
+          dark: '#0f172a', // Text
+          light: '#f1f5f9', // Backgrounds
         }
+      },
+      screens: {
+        'mobile': '320px',
+        'large-mobile': '481px',
+        'tablet-portrait': '641px',
+        'tablet-landscape': '769px',
+        'desktop': '1025px',
       },
     },
   },

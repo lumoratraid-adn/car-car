@@ -47,41 +47,73 @@ export function WhyAutoVibe() {
   ]
 
   return (
-    <section className="py-12 bg-zinc-900 text-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <h2 className="text-2xl sm:text-3xl font-semibold">Why Auto Vibe</h2>
-          <p className="mt-2 text-sm text-gray-400">Practical workmanship and steady care — local detailing you can rely on.</p>
+    <section className="py-20 bg-zinc-900 text-gray-200 relative overflow-hidden">
+      {/* Enhanced Background */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 via-transparent to-blue-900/10" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(239,68,68,0.05),transparent_50%)]" />
+        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.05),transparent_50%)]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+            Why Choose <span className="text-red-600">Auto Vibe</span>
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Discover what sets us apart in professional car detailing. Our commitment to excellence,
+            cutting-edge techniques, and customer satisfaction make us the preferred choice.
+          </p>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {items.map((it) => {
             const Icon = it.icon
             return (
-              <div key={it.id} className="bg-zinc-800 border border-zinc-700 rounded-lg p-6">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 mt-1">
-                    {Icon ? (
-                      <Icon className="w-6 h-6 text-red-500" />
-                    ) : (
-                      <span className="inline-block w-6 h-6 bg-gray-500 rounded" />
-                    )}
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-white">{it.title}</h3>
-                    <div className="mt-2 text-sm text-gray-300">
-                      <div className="font-medium text-gray-200">Used for</div>
-                      <div className="text-gray-400">{it.used}</div>
+              <div key={it.id} className="bg-zinc-800/60 backdrop-blur-sm border border-zinc-700/50 rounded-xl p-8 hover:bg-zinc-800/80 hover:border-red-500/30 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 group hover:-translate-y-2">
+                <div className="flex items-start gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-14 h-14 bg-red-600/20 rounded-xl flex items-center justify-center group-hover:bg-red-600/30 transition-colors">
+                      {Icon ? (
+                        <Icon className="w-7 h-7 text-red-500" />
+                      ) : (
+                        <span className="inline-block w-7 h-7 bg-gray-500 rounded" />
+                      )}
                     </div>
-                    <div className="mt-3 text-sm text-gray-300">
-                      <div className="font-medium text-gray-200">Why it matters</div>
-                      <div className="text-gray-400">{it.why}</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors">{it.title}</h3>
+                    <div className="space-y-3">
+                      <div>
+                        <div className="text-sm font-semibold text-red-400 uppercase tracking-wide mb-1">Used for</div>
+                        <div className="text-gray-300 leading-relaxed">{it.used}</div>
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-red-400 uppercase tracking-wide mb-1">Why it matters</div>
+                        <div className="text-gray-300 leading-relaxed">{it.why}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             )
           })}
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-zinc-700/50 rounded-2xl p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4">Ready to Experience Excellence?</h3>
+            <p className="text-gray-400 mb-6">
+              Join hundreds of satisfied customers who trust Auto Vibe with their vehicles.
+            </p>
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'contact' }))}
+              className="px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
+            >
+              Book Your Appointment
+            </button>
+          </div>
         </div>
       </div>
     </section>

@@ -22,19 +22,18 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-gray-950 text-gray-300 pt-14 pb-8 border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="bg-gradient-to-b from-gray-950 to-black text-gray-300 pt-16 pb-8 border-t border-gray-800/50 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-r from-red-900/5 via-transparent to-blue-900/5" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           {/* About / Brand */}
           <div>
             <div className="flex items-center mb-4">
               <img
-                src="/logo.png"
+                src="/ChatGPT_Image_Jan_4,_2026,_10_21_11_AM.png"
                 alt="Auto Vibe Logo"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = '/logo.svg'
-                }}
                 className="h-16 w-auto mr-3 rounded-md border border-white/10 p-1 bg-black/10 shadow-sm"
               />
               <div>
@@ -76,24 +75,24 @@ export function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/services" className="hover:text-white transition">
+                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'services' }))} className="hover:text-white transition text-left">
                   Exterior Wash & Wax
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/services#detailing" className="hover:text-white transition">
+                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'services' }))} className="hover:text-white transition text-left">
                   Full Detailing
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/services#ceramic" className="hover:text-white transition">
+                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'services' }))} className="hover:text-white transition text-left">
                   Ceramic Coating
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/services#interior" className="hover:text-white transition">
+                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'services' }))} className="hover:text-white transition text-left">
                   Interior Deep Clean
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -105,24 +104,24 @@ export function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/" className="hover:text-white transition">
+                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'home' }))} className="hover:text-white transition text-left">
                   Home
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/services" className="hover:text-white transition">
+                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'services' }))} className="hover:text-white transition text-left">
                   Services
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/contact" className="hover:text-white transition">
+                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'contact' }))} className="hover:text-white transition text-left">
                   Contact
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/reviews" className="hover:text-white transition">
+                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'home' }))} className="hover:text-white transition text-left">
                   Reviews
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -203,12 +202,12 @@ export function Footer() {
           </p>
 
           <div className="flex items-center gap-4 text-xs justify-center md:justify-start w-full md:w-auto">
-            <a href="/privacy" className="text-gray-500 hover:text-white transition">
+            <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'home' }))} className="text-gray-500 hover:text-white transition">
               Privacy
-            </a>
-            <a href="/terms" className="text-gray-500 hover:text-white transition">
+            </button>
+            <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'home' }))} className="text-gray-500 hover:text-white transition">
               Terms
-            </a>
+            </button>
             <span className="text-gray-600">•</span>
             <span className="text-gray-500">Built with care</span>
           </div>

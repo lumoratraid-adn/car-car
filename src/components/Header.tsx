@@ -62,14 +62,14 @@ export function Header({
     setIsMenuOpen(false);
     window.scrollTo(0, 0);
   };
-  return <header ref={headerRef} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || isMenuOpen ? 'bg-black/95 backdrop-blur-md border-b border-white/10 py-2' : 'bg-black/80 backdrop-blur-sm py-3'}`}>
+  return <header ref={headerRef} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || isMenuOpen ? 'bg-black/95 backdrop-blur-md border-b border-white/10 py-2 shadow-lg shadow-black/50' : 'bg-black/80 backdrop-blur-sm py-3'}`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer group" onClick={() => handleNavClick('home')}>
             <div className="flex items-center">
-              <motion.img src="/logo.png" alt="Auto Vibe Logo" onError={(e)=>{(e.currentTarget as HTMLImageElement).src = '/logo.svg'}} className="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 block" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} />
-          
+              <motion.img src="/ChatGPT_Image_Jan_4,_2026,_10_21_11_AM.png" alt="Auto Vibe Logo" className="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 block" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} />
+
             </div>
           </div>
 
@@ -77,19 +77,19 @@ export function Header({
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map(link => <button key={link.name} onClick={() => handleNavClick(link.value)} className={`text-sm font-medium transition-all duration-200 tracking-wide ${currentPage === link.value ? 'text-white' : 'text-gray-400 hover:text-white'}`}>
                 {link.name}
-                {currentPage === link.value && <motion.div layoutId="underline" className="h-0.5 w-full bg-red-600 mt-1" />}
+                {currentPage === link.value && <motion.div layoutId="underline" className="h-0.5 w-full bg-brand-teal mt-1" />}
               </button>)}
           </nav>
 
-          {/* Desktop CTAs */}
+          {/* Desktop CTAs */} 
           <div className="hidden md:flex items-center space-x-4">
             <a href="https://wa.me/919074997502" target="_blank" rel="noopener noreferrer" className="flex items-center px-4 py-2 text-sm font-bold text-white bg-green-600 hover:bg-green-700 rounded-full transition-all transform hover:scale-105">
               <MessageCircle className="w-4 h-4 mr-2" />
-              <span className="hidden md:inline">9074997502</span>
+              <span className="hidden md:inline">Book Now</span>
             </a>
-            <a href="tel:8089314740" className="flex items-center px-4 py-2 text-sm font-bold text-white bg-red-600 hover:bg-red-700 rounded-full transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(220,38,38,0.5)]">
+            <a href="tel:8089314740" className="flex items-center px-4 py-2 text-sm font-bold text-white bg-brand-teal hover:bg-brand-cyan rounded-full transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(13,148,136,0.5)]">
               <Phone className="w-4 h-4 mr-2" />
-              <span className="hidden md:inline">8089314740</span>
+              <span className="hidden md:inline">Get in Touch</span>
             </a>
           </div>
 
@@ -122,7 +122,7 @@ export function Header({
                   {link.name}
                 </button>)}
               <div className="pt-4 grid grid-cols-2 gap-3">
-                <a href="tel:8089314740" className="flex items-center justify-center px-4 py-3 text-sm font-bold text-white bg-red-600 rounded-lg active:bg-red-700">
+                <a href="tel:8089314740" className="flex items-center justify-center px-4 py-3 text-sm font-bold text-white bg-brand-teal rounded-lg active:bg-brand-cyan">
                   <Phone className="w-4 h-4 mr-2" />
                   Call
                 </a>

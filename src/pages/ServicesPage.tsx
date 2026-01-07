@@ -40,10 +40,10 @@ export function ServicesPage() {
     <div className="bg-gradient-to-b from-black via-zinc-950 to-black text-white min-h-screen">
       {/* Hero Section */}
       <div className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 via-transparent to-blue-900/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-red/10 via-transparent to-brand-gold/10" />
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-red/5 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h1
@@ -52,7 +52,7 @@ export function ServicesPage() {
             transition={{ duration: 0.6 }}
             className="text-5xl sm:text-6xl font-bold text-white mb-6"
           >
-            Professional <span className="text-red-600">Detailing</span> Services
+            Professional <span className="text-brand-gold">Detailing</span> Services
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -71,7 +71,7 @@ export function ServicesPage() {
           >
             <button
               onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'contact' }))}
-              className="px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
+              className="px-8 py-3 bg-brand-red hover:bg-brand-red-dark text-white font-bold rounded-lg transition-colors border border-brand-red shadow-[0_0_20px_rgba(229,25,18,0.3)] hover:shadow-[0_0_30px_rgba(229,25,18,0.5)]"
             >
               Book Appointment
             </button>
@@ -104,11 +104,11 @@ export function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-700/50 rounded-xl p-6 hover:border-red-600/30 hover:shadow-lg hover:shadow-red-600/10 transition-all duration-300 group"
+                  className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-700/50 rounded-xl p-6 hover:border-brand-gold/30 hover:shadow-lg hover:shadow-brand-gold/10 transition-all duration-300 group"
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center group-hover:bg-red-600/30 transition-colors">
-                      <Icon className="w-6 h-6 text-red-600" />
+                    <div className="flex-shrink-0 w-12 h-12 bg-brand-gold/10 rounded-lg flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors border border-brand-gold/20">
+                      <Icon className="w-6 h-6 text-brand-gold" />
                     </div>
                     <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
                   </div>
@@ -135,7 +135,7 @@ export function ServicesPage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-4xl font-bold text-white mb-6">
-                Why Protection <span className="text-red-600">Matters</span>
+                Why Protection <span className="text-brand-gold">Matters</span>
               </h2>
               <div className="space-y-4 text-gray-400">
                 <p>
@@ -164,14 +164,14 @@ export function ServicesPage() {
             >
               <div className="aspect-square bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-2xl p-8 flex items-center justify-center">
                 <div className="text-center">
-                  <Shield className="w-24 h-24 text-red-600 mx-auto mb-4" />
+                  <Shield className="w-24 h-24 text-brand-gold mx-auto mb-4" />
                   <h3 className="text-2xl font-bold text-white mb-2">Premium Protection</h3>
                   <p className="text-gray-400">Advanced coatings for lasting beauty</p>
                 </div>
               </div>
               {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-red-600/20 rounded-full blur-xl" />
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-600/20 rounded-full blur-xl" />
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-brand-gold/20 rounded-full blur-xl" />
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-brand-red/20 rounded-full blur-xl" />
             </motion.div>
           </div>
         </div>

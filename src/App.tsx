@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import Loader from './components/Loader';
@@ -16,7 +17,7 @@ export function App() {
     window.addEventListener('navigate-to', handler as EventListener)
     return () => window.removeEventListener('navigate-to', handler as EventListener)
   }, [])
-  useEffect(()=>{
+  useEffect(() => {
     // keep loader until the browser fires the load event (assets loaded)
     const onLoad = () => setLoading(false);
     window.addEventListener('load', onLoad);
@@ -26,7 +27,7 @@ export function App() {
       window.removeEventListener('load', onLoad);
       clearTimeout(fallback);
     };
-  },[])
+  }, [])
   useEffect(() => {
     // ensure page starts at top when route changes
     window.scrollTo(0, 0);
@@ -46,9 +47,10 @@ export function App() {
     }
   };
   return <div className="min-h-screen bg-black flex flex-col font-sans">
-      {loading && <Loader />}
-      <Header setCurrentPage={setCurrentPage} currentPage={currentPage} />
-      <main className="flex-grow mt-24">{renderPage()}</main>
-      <Footer />
-    </div>;
+    {loading && <Loader />}
+    <Header setCurrentPage={setCurrentPage} currentPage={currentPage} />
+    <main className="flex-grow">{renderPage()}</main>
+    <FloatingWhatsApp />
+    <Footer />
+  </div>;
 }

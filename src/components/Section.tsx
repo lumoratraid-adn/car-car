@@ -20,9 +20,9 @@ export function Section({
   container = true
 }: SectionProps) {
   const backgroundClasses = {
-    default: 'bg-zinc-950/50',
-    dark: 'bg-black',
-    gradient: 'bg-gradient-to-b from-zinc-950 to-black'
+    default: 'bg-transparent',
+    dark: 'bg-black/30',
+    gradient: 'bg-gradient-to-b from-black/40 to-black/20'
   };
 
   const spacingClasses = {

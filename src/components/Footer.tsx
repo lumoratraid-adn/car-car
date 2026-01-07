@@ -21,27 +21,38 @@ export function Footer() {
     setEmail("")
   }
 
+  const navigateTo = (page: string) => {
+    window.dispatchEvent(new CustomEvent('navigate-to', { detail: page }));
+  };
+
   return (
     <footer className="bg-gradient-to-b from-gray-950 to-black text-gray-300 pt-16 pb-8 border-t border-gray-800/50 relative overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-r from-red-900/5 via-transparent to-blue-900/5" />
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-red/5 via-transparent to-brand-gold/5" />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
+
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           {/* About / Brand */}
           <div>
-            <div className="flex items-center mb-4">
-              <img
-                src="/ChatGPT_Image_Jan_4,_2026,_10_21_11_AM.png"
-                alt="Auto Vibe Logo"
-                className="h-16 w-auto mr-3 rounded-md border border-white/10 p-1 bg-black/10 shadow-sm"
-              />
-              <div>
-                <div className="text-xl font-bold text-white">AUTO VIBE</div>
-                <div className="text-sm text-gray-400">Spa & Detailing</div>
+            {/* Logos */}
+            <div className="flex flex-col items-start gap-4 mb-6 -mt-16">
+              <div className="flex items-center gap-4">
+                <img
+                  src="/Car Logo Only.svg"
+                  alt="Auto Vibe Icon"
+                  className="h-[90px] md:h-[120px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 block"
+                />
+                <img
+                  src="/logo text.svg"
+                  alt="Auto Vibe"
+                  className="h-[140px] md:h-[180px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 block -ml-5 md:-ml-7"
+                  style={{ filter: 'brightness(2)' }}
+                />
               </div>
             </div>
-            <p className="text-sm leading-relaxed text-gray-400 mb-4">
+
+            <p className="text-sm leading-relaxed text-gray-400 mb-6">
               Auto Vibe delivers premium car care in Narikkuni, Kozhikode —
               professional interior and exterior detailing since 2022.
             </p>
@@ -56,12 +67,12 @@ export function Footer() {
                 placeholder="Your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 rounded-md bg-gray-900 border border-gray-800 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600"
+                className="w-full px-3 py-2 rounded-md bg-gray-900 border border-gray-800 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-gold"
                 aria-label="Subscribe with email"
               />
               <button
                 type="submit"
-                className="px-4 py-2 rounded-md bg-red-600 text-white text-sm hover:bg-red-700 transition mt-2 sm:mt-0"
+                className="px-4 py-2 rounded-md bg-brand-gold text-black font-bold text-sm hover:bg-brand-gold-light transition mt-2 sm:mt-0"
               >
                 Subscribe
               </button>
@@ -75,22 +86,22 @@ export function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'services' }))} className="hover:text-white transition text-left">
+                <button onClick={() => navigateTo('services')} className="hover:text-white transition text-left">
                   Exterior Wash & Wax
                 </button>
               </li>
               <li>
-                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'services' }))} className="hover:text-white transition text-left">
+                <button onClick={() => navigateTo('services')} className="hover:text-white transition text-left">
                   Full Detailing
                 </button>
               </li>
               <li>
-                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'services' }))} className="hover:text-white transition text-left">
+                <button onClick={() => navigateTo('services')} className="hover:text-white transition text-left">
                   Ceramic Coating
                 </button>
               </li>
               <li>
-                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'services' }))} className="hover:text-white transition text-left">
+                <button onClick={() => navigateTo('services')} className="hover:text-white transition text-left">
                   Interior Deep Clean
                 </button>
               </li>
@@ -104,22 +115,22 @@ export function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'home' }))} className="hover:text-white transition text-left">
+                <button onClick={() => navigateTo('home')} className="hover:text-white transition text-left">
                   Home
                 </button>
               </li>
               <li>
-                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'services' }))} className="hover:text-white transition text-left">
+                <button onClick={() => navigateTo('services')} className="hover:text-white transition text-left">
                   Services
                 </button>
               </li>
               <li>
-                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'contact' }))} className="hover:text-white transition text-left">
+                <button onClick={() => navigateTo('contact')} className="hover:text-white transition text-left">
                   Contact
                 </button>
               </li>
               <li>
-                <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'home' }))} className="hover:text-white transition text-left">
+                <button onClick={() => navigateTo('home')} className="hover:text-white transition text-left">
                   Reviews
                 </button>
               </li>
@@ -133,7 +144,7 @@ export function Footer() {
             </h3>
 
             <div className="flex items-start gap-3 mb-3">
-              <MapPin className="w-5 h-5 text-red-600 mt-0.5" />
+              <MapPin className="w-5 h-5 text-brand-gold mt-0.5" />
               <p className="text-sm leading-relaxed">
                 Poonoor – Narikkuni Road,
                 <br />
@@ -143,17 +154,17 @@ export function Footer() {
 
             <div className="space-y-3 text-sm">
               <a href="tel:+918089314740" className="flex items-center gap-3 hover:text-white transition">
-                <Phone className="w-4 h-4 text-red-600" />
+                <Phone className="w-4 h-4 text-brand-gold" />
                 <span>+91 808 9314 740</span>
               </a>
 
               <a href="tel:+919074997502" className="flex items-center gap-3 hover:text-white transition">
-                <Phone className="w-4 h-4 text-red-600" />
+                <Phone className="w-4 h-4 text-brand-gold" />
                 <span>+91 907 4997 502</span>
               </a>
 
               <div className="flex items-center gap-3">
-                <Clock className="w-4 h-4 text-red-600" />
+                <Clock className="w-4 h-4 text-brand-gold" />
                 <div className="text-sm">
                   <div>Sun: 9:00 AM – 12:00 PM</div>
                   <div>Mon–Sat: 9:00 AM – 6:00 PM</div>
@@ -202,10 +213,10 @@ export function Footer() {
           </p>
 
           <div className="flex items-center gap-4 text-xs justify-center md:justify-start w-full md:w-auto">
-            <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'home' }))} className="text-gray-500 hover:text-white transition">
+            <button onClick={() => navigateTo('home')} className="text-gray-500 hover:text-white transition">
               Privacy
             </button>
-            <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'home' }))} className="text-gray-500 hover:text-white transition">
+            <button onClick={() => navigateTo('home')} className="text-gray-500 hover:text-white transition">
               Terms
             </button>
             <span className="text-gray-600">•</span>

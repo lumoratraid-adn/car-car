@@ -47,18 +47,18 @@ export function WhyAutoVibe() {
   ]
 
   return (
-    <section className="py-20 bg-zinc-900 text-gray-200 relative overflow-hidden">
+    <section className="py-20 bg-black/30 text-gray-200 relative overflow-hidden">
       {/* Enhanced Background */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 via-transparent to-blue-900/10" />
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(239,68,68,0.05),transparent_50%)]" />
-        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.05),transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-red/10 via-transparent to-brand-gold/10" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(229,25,18,0.05),transparent_50%)]" />
+        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(252,218,6,0.05),transparent_50%)]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            Why Choose <span className="text-red-600">Auto Vibe</span>
+            Why Choose <span className="text-brand-gold">Auto Vibe</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Discover what sets us apart in professional car detailing. Our commitment to excellence,
@@ -70,26 +70,26 @@ export function WhyAutoVibe() {
           {items.map((it) => {
             const Icon = it.icon
             return (
-              <div key={it.id} className="bg-zinc-800/60 backdrop-blur-sm border border-zinc-700/50 rounded-xl p-8 hover:bg-zinc-800/80 hover:border-red-500/30 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 group hover:-translate-y-2">
+              <div key={it.id} className="bg-zinc-800/60 backdrop-blur-sm border border-zinc-700/50 rounded-xl p-8 hover:bg-zinc-800/80 hover:border-brand-gold/30 hover:shadow-2xl hover:shadow-brand-gold/10 transition-all duration-500 group hover:-translate-y-2">
                 <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-14 h-14 bg-red-600/20 rounded-xl flex items-center justify-center group-hover:bg-red-600/30 transition-colors">
+                    <div className="w-14 h-14 bg-brand-gold/10 rounded-xl flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors border border-brand-gold/20">
                       {Icon ? (
-                        <Icon className="w-7 h-7 text-red-500" />
+                        <Icon className="w-7 h-7 text-brand-gold" />
                       ) : (
                         <span className="inline-block w-7 h-7 bg-gray-500 rounded" />
                       )}
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors">{it.title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-brand-gold transition-colors">{it.title}</h3>
                     <div className="space-y-3">
                       <div>
-                        <div className="text-sm font-semibold text-red-400 uppercase tracking-wide mb-1">Used for</div>
+                        <div className="text-sm font-semibold text-brand-gold uppercase tracking-wide mb-1">Used for</div>
                         <div className="text-gray-300 leading-relaxed">{it.used}</div>
                       </div>
                       <div>
-                        <div className="text-sm font-semibold text-red-400 uppercase tracking-wide mb-1">Why it matters</div>
+                        <div className="text-sm font-semibold text-brand-gold uppercase tracking-wide mb-1">Why it matters</div>
                         <div className="text-gray-300 leading-relaxed">{it.why}</div>
                       </div>
                     </div>
@@ -109,7 +109,7 @@ export function WhyAutoVibe() {
             </p>
             <button
               onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'contact' }))}
-              className="px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
+              className="px-8 py-3 bg-brand-red hover:bg-brand-red-dark text-white font-bold rounded-lg transition-colors border border-brand-red shadow-[0_0_20px_rgba(229,25,18,0.3)] hover:shadow-[0_0_30px_rgba(229,25,18,0.5)]"
             >
               Book Your Appointment
             </button>

@@ -4,16 +4,16 @@ export function ContactSection() {
     <section className="py-20 bg-gradient-to-b from-zinc-900 to-black text-gray-200 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 via-transparent to-green-900/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-red/10 via-transparent to-brand-gold/10" />
       </div>
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h2 className="text-3xl font-bold text-white mb-8">Get In Touch</h2>
 
         <div className="space-y-4">
-          <a href="tel:8089314740" className="block w-full bg-zinc-900 p-6 rounded-xl shadow-sm border border-zinc-800 hover:border-zinc-700 hover:shadow-md transition-all group">
+          <a href="tel:8089314740" className="block w-full bg-zinc-900 p-6 rounded-xl shadow-sm border border-zinc-800 hover:border-brand-red/30 hover:shadow-md transition-all group">
             <div className="flex items-center justify-center">
-              <div className="bg-zinc-800 p-3 rounded-full group-hover:bg-red-600 transition-colors">
+              <div className="bg-zinc-800 p-3 rounded-full group-hover:bg-brand-red transition-colors border border-zinc-700/50">
                 <Phone className="w-6 h-6 text-gray-200 group-hover:text-white" />
               </div>
               <div className="ml-4 text-left">
@@ -23,9 +23,9 @@ export function ContactSection() {
             </div>
           </a>
 
-          <a href="tel:9074997502" className="block w-full bg-zinc-900 p-6 rounded-xl shadow-sm border border-zinc-800 hover:border-zinc-700 hover:shadow-md transition-all group">
+          <a href="tel:9074997502" className="block w-full bg-zinc-900 p-6 rounded-xl shadow-sm border border-zinc-800 hover:border-brand-red/30 hover:shadow-md transition-all group">
             <div className="flex items-center justify-center">
-              <div className="bg-zinc-800 p-3 rounded-full group-hover:bg-red-600 transition-colors">
+              <div className="bg-zinc-800 p-3 rounded-full group-hover:bg-brand-red transition-colors border border-zinc-700/50">
                 <Phone className="w-6 h-6 text-gray-200 group-hover:text-white" />
               </div>
               <div className="ml-4 text-left">
@@ -49,8 +49,8 @@ export function ContactSection() {
 
           <a href="https://maps.app.goo.gl/iCPXI5hLHqzYEoXKV" target="_blank" rel="noopener noreferrer" className="block w-full bg-zinc-900 p-6 rounded-xl shadow-sm border border-zinc-800 hover:border-zinc-700 hover:shadow-md transition-all group">
             <div className="flex items-center justify-center">
-              <div className="bg-zinc-800 p-3 rounded-full group-hover:bg-red-600 transition-colors">
-                <MapPin className="w-6 h-6 text-gray-200 group-hover:text-white" />
+              <div className="bg-zinc-800 p-3 rounded-full group-hover:bg-brand-gold transition-colors">
+                <MapPin className="w-6 h-6 text-gray-200 group-hover:text-black" />
               </div>
               <div className="ml-4 text-left">
                 <p className="text-sm text-gray-400">Visit Studio</p>

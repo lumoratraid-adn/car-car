@@ -1,36 +1,50 @@
 import { motion } from 'framer-motion';
-import { CloudRain, Droplets, Phone, Shield, Slash, Sparkles, Sun, Truck, Wind, type LucideIcon } from 'lucide-react';
+import { Phone } from 'lucide-react';
 
-type Service = {
+type ServiceCategory = {
   id: string;
   title: string;
   desc: string;
-  time?: string;
-  icon?: LucideIcon;
+  image: string;
+  items: string[];
 }
 
-const exteriorServices: Service[] = [
-  { id: 'wash', title: 'Exterior Wash & Rinse', desc: 'Gentle hand wash + rinse using pH-balanced products for a spotless exterior.', time: '30–45 mins', icon: Droplets },
-  { id: 'decon', title: 'Paint Decontamination', desc: 'Clay bar or chemical wash to remove bonded contaminants and surface residues.', time: '45–60 mins', icon: Slash },
-  { id: 'polish', title: 'Polishing / Paint Correction', desc: 'Removes light scratches and swirls, restores smooth shine.', time: '1–3 hrs', icon: Sparkles },
-  { id: 'wax', title: 'Waxing & Sealant Protection', desc: 'Adds a protective layer that lasts for weeks and enhances shine.', time: '45–60 mins', icon: Shield },
-  { id: 'ceramic', title: 'Ceramic Coating Application', desc: 'Long-lasting protection against dirt, rain marks, and UV damage.', time: '6–8 hrs', icon: Shield }
-];
-
-const interiorServices: Service[] = [
-  { id: 'vacuum', title: 'Interior Vacuum & Deep Clean', desc: 'Thorough vacuuming and surface cleaning of upholstery and mats.', time: '45–90 mins', icon: Wind },
-  { id: 'steam', title: 'Steam Cleaning Upholstery & Seats', desc: 'Deep steam removal of stains, allergens, and odors.', time: '45–90 mins', icon: Sun },
-  { id: 'dashboard', title: 'Dashboard & Panel Cleaning', desc: 'Careful cleaning + UV protection for plastics, vinyl, and trims.', time: '20–30 mins', icon: Slash },
-  { id: 'leather', title: 'Leather Treatment & Conditioning', desc: 'Nourishes and protects leather surfaces against cracking or fading.', time: '30–45 mins', icon: Shield }
-];
-
-const addonServices: Service[] = [
-  { id: 'glass', title: 'Glass & Window Treatment', desc: 'Crystal-clear visibility with streak-free window cleaning.', time: '15–30 mins', icon: CloudRain },
-  { id: 'tyres', title: 'Tire & Wheel Detailing', desc: 'Cleaning, degreasing, tire shine, and rim polishing.', time: '30–45 mins', icon: Sparkles },
-  { id: 'engine', title: 'Engine Bay Cleaning', desc: 'Safe engine cleaning to remove grease and grime (optional add-on).', time: '30–60 mins', icon: Truck },
-  { id: 'headlight', title: 'Headlight Polishing', desc: 'Restores clarity to yellowed or cloudy headlights.', time: '30–45 mins', icon: Sun },
-  { id: 'odor', title: 'Odor Removal & Sanitization', desc: 'Keeps the cabin fresh and hygienic using odor-neutralizing solutions.', time: '30–60 mins', icon: Slash },
-  { id: 'pickup', title: 'Pickup & Drop (Local)', desc: 'Optional service where the car is picked up and returned after detailing.', time: 'Varies', icon: Truck }
+const services: ServiceCategory[] = [
+  {
+    id: 'coating',
+    title: 'Ceramic Coating',
+    desc: 'Advanced paint protection solutions including Ceramic, Graphene, and Polymer coatings for long-lasting shine and durability.',
+    image: '/coating.jpg',
+    items: ['Ceramic Coating', 'Graphene Coating', 'Polymer Coating']
+  },
+  {
+    id: 'detailing',
+    title: 'Detailing & Cleaning',
+    desc: 'Comprehensive cleaning services ranging from complete exterior washes to deep interior vacuuming and AC vent cleaning.',
+    image: '/detailing.jpg',
+    items: ['Exterior Detailing', 'Interior Deep Clean', 'AC Vent Cleaning']
+  },
+  {
+    id: 'restoration',
+    title: 'Restoration & Polishing',
+    desc: 'Expert restoration services to bring back clarity and shine to your headlights, glass, and windshields.',
+    image: '/restoration.jpg',
+    items: ['Headlight Restoration', 'Glass Polishing', 'Windshield Treatment']
+  },
+  {
+    id: 'protection',
+    title: 'Protection Treatments',
+    desc: 'Essential protection for your vehicle\'s longevity, including anti-rust treatments and interior fabric/leather guarding.',
+    image: '/protection.jpg',
+    items: ['Anti-Rust Treatment', 'Interior Protection']
+  },
+  {
+    id: 'mechanical',
+    title: 'Mechanical & Specialty Services',
+    desc: 'Specialized care for your unique needs, including premium engine buffing for Royal Enfield and Bullet bikes.',
+    image: '/mechanical service.jpg',
+    items: ['Bullet Engine Buffing', 'Specialty Services']
+  }
 ];
 
 const packages = [
@@ -42,97 +56,118 @@ const packages = [
 
 export function ServicesSection({ detailed }: { detailed?: boolean }) {
   const whatsApp = 'https://wa.me/919074997502';
-  const renderCard = (s: Service) => {
-    const Icon = s.icon || Sparkles;
+
+  const renderCard = (s: ServiceCategory) => {
     return (
-      <div key={s.id} className="flex flex-col justify-between p-6 rounded-xl bg-gradient-to-b from-zinc-900/80 to-zinc-900/60 border border-zinc-700/50 shadow-lg h-full group hover:shadow-2xl hover:shadow-brand-teal/20 transition-all duration-300 hover:-translate-y-2 hover:border-brand-teal/30 backdrop-blur-sm">
-        <div>
-          <div className="flex items-start justify-between">
-            <div className="flex items-start gap-4">
-              <motion.div whileHover={{ scale: 1.1, rotate: 5 }} className="flex items-center justify-center w-12 h-12 rounded-full bg-brand-teal/10 text-brand-teal">
-                <Icon className="w-5 h-5" />
-              </motion.div>
-              <div>
-                <h3 className="text-lg font-semibold text-white">{s.title}</h3>
-                {detailed && s.time && <div className="mt-1 text-xs text-gray-500">Est. time: {s.time}</div>}
-              </div>
-            </div>
-          </div>
-          <p className="mt-3 text-sm text-gray-400">{s.desc}</p>
+      <div className="flex flex-col h-full rounded-2xl bg-zinc-900 border border-zinc-800 shadow-xl overflow-hidden group hover:border-brand-gold/30 transition-all duration-300">
+
+        {/* 1. Title Section */}
+        <div className="p-6 pb-4">
+          <h3 className="text-2xl font-bold text-white uppercase tracking-wide group-hover:text-brand-gold transition-colors">{s.title}</h3>
         </div>
-        <div className="mt-6">
-          <a href={whatsApp} target="_blank" rel="noreferrer" className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-3 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full text-sm">
-            <Phone className="w-4 h-4" /> Book on WhatsApp
-          </a>
+
+        {/* 2. Image Section */}
+        <div className="w-full h-48 relative overflow-hidden bg-zinc-800">
+          <img
+            src={s.image}
+            alt={s.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-20" />
+        </div>
+
+        {/* 3. Description & Content Section */}
+        <div className="flex flex-col flex-grow p-6 pt-6">
+          <p className="text-gray-400 mb-6 text-sm leading-relaxed">{s.desc}</p>
+
+          {/* Sub-items list */}
+          <ul className="space-y-2 mb-6">
+            {s.items.map((item, i) => (
+              <li key={i} className="text-xs text-gray-500 font-medium flex items-center gap-2 uppercase tracking-wider group-hover:text-brand-gold/80 transition-colors">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          {/* 4. Book Now Button */}
+          <div className="mt-auto">
+            <a href={whatsApp} target="_blank" rel="noreferrer" className="w-full inline-flex justify-center items-center gap-2 px-6 py-3 bg-transparent border border-zinc-700 hover:border-brand-red hover:bg-brand-red hover:text-white text-gray-300 font-bold rounded-lg transition-all duration-300 uppercase text-sm tracking-widest group/btn">
+              <Phone className="w-4 h-4" />
+              Book Now
+            </a>
+          </div>
         </div>
       </div>
     );
   };
 
   return (
-    <section id="services" className="py-20 bg-zinc-950 relative overflow-hidden">
+    <section id="services" className="py-20 bg-black/30 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/20 via-transparent to-brand-cyan/20" />
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(13,148,136,0.1),transparent_50%)]" />
-        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(6,182,212,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/10 via-transparent to-brand-red/10" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(252,218,6,0.05),transparent_50%)]" />
+        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(229,25,18,0.05),transparent_50%)]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-          <div>
-            <h2 className="text-3xl font-black text-white">Our Services</h2>
-            <p className="text-gray-400 mt-2">Everything your car needs under one roof</p>
-          </div>
-          {!detailed && (
-            <div>
-              <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'services' }))} className="px-4 py-2 bg-brand-teal hover:bg-brand-cyan text-white rounded-md transition-colors">
-                View All Services
-              </button>
-            </div>
-          )}
+        <div className="mb-12 text-center">
+          <motion.h2
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-5xl md:text-6xl font-black mb-4 uppercase tracking-tighter"
+          >
+            <span className="text-white">Our </span>
+            <span className="text-brand-red inline-block animate-pulse">Services</span>
+          </motion.h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            Premium automotive care solutions tailored for your vehicle
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 tablet-landscape:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Exterior Services</h4>
-            <div className="grid grid-cols-1 gap-4">
-              {exteriorServices.map(s => (
-                <div key={s.id} className="h-full">{renderCard(s)}</div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Interior Services</h4>
-            <div className="grid grid-cols-1 gap-4">
-              {interiorServices.map(s => (
-                <div key={s.id} className="h-full">{renderCard(s)}</div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Add-on Services</h4>
-            <div className="grid grid-cols-1 gap-4">
-              {addonServices.map(s => (
-                <div key={s.id} className="h-full">{renderCard(s)}</div>
-              ))}
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, idx) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1, duration: 0.6 }}
+              className="h-full"
+            >
+              {renderCard(service)}
+            </motion.div>
+          ))}
         </div>
+
+        {!detailed && (
+          <div className="mt-12 text-center">
+            <button onClick={() => window.dispatchEvent(new CustomEvent('navigate-to', { detail: 'services' }))} className="px-8 py-3 bg-brand-red hover:bg-brand-red-dark text-white font-bold rounded-lg transition-colors shadow-lg shadow-brand-red/20">
+              View All Details
+            </button>
+          </div>
+        )}
 
         {detailed && (
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold text-white mb-4">Service Packages</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-white mb-6 pl-4 border-l-4 border-brand-red">Service Packages</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {packages.map(p => (
-                <div key={p.id} className="p-4 bg-zinc-900 border border-zinc-800 rounded-lg flex items-center justify-between">
+                <div key={p.id} className="p-6 bg-zinc-900/50 border border-zinc-800 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-brand-gold/30 transition-colors">
                   <div>
-                    <div className="font-semibold text-white">{p.title}</div>
-                    <div className="text-sm text-gray-400">{p.desc}</div>
+                    <div className="font-bold text-white text-lg">{p.title}</div>
+                    <div className="text-sm text-gray-400 mt-1">{p.desc}</div>
                   </div>
-                  {detailed ? <div className="text-sm text-gray-300">{p.price}</div> : <div className="text-sm text-gray-500">Contact for pricing</div>}
+                  <div className="text-right">
+                    {detailed ? (
+                      <div className="text-brand-gold font-bold">{p.price}</div>
+                    ) : (
+                      <div className="text-sm text-gray-500">Contact for pricing</div>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
